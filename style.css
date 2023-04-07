@@ -4,7 +4,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: white;
     margin: 20px auto;
-    width: 600px;
+    width: 700px;
     box-shadow: 0 0 50px rgb(198, 194, 198);
     border-radius: 20px;
     padding: 0.01em 2em 1em;
@@ -106,6 +106,6 @@ p {
 
 span {
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     color: red;
 }

@@ -8,6 +8,9 @@ $(document).ready(() => {
 	//will be used to validate phone number		
 	const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
 
+	//will be used to validate date
+	const dateformat = /^(0?[1-9]|1[0-2])[\/](0?[1-9]|[1-2][0-9]|3[01])[\/]\d{4}$/;
+
 	//moves the focus to the “Arrival date” text box
 	$('#arrival_date').focus();
 
@@ -30,6 +33,9 @@ $(document).ready(() => {
 		// Validate each input field
 		if (rDate == '') {
 			$('#arrival_date').next().text('This field is required.');
+			isValid = false;
+		} else if (!dateformat.test(rDate)) {
+			$('#arrival_date').next().text('Date must be in valid format. (e.g. MM/DD/YYYY)');
 			isValid = false;
 		} else {
 			rDate = $('#arrival_date').val().trim();
