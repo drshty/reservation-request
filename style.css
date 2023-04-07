@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    margin: 20px auto;
+    width: 600px;
+    box-shadow: 0 0 50px rgb(198, 194, 198);
+    border-radius: 20px;
+    padding: 0.01em 2em 1em;
+    color: rgb(139, 6, 139);
+}
+
+h1 {
+    font-weight: 400;
+    text-align: center;
+}
+
+div {
+    margin-bottom: 0.5em;
+}
+
+fieldset {
+    border: 1px solid rgb(139, 6, 139);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: .5em;
+}
+
+legend {
+    font-weight: 400;
+    font-size: 85%;
+    margin-bottom: .5em;
+}
+
+label {
+    display: inline-block;
+    width: 6em;
+}
+
+input,
+select {
+    border-radius: 5px;
+    border: 1px solid magenta;
+    padding: 5px;
+    margin-left: 1em;
+    margin-right: 0.5em;
+}
+
+select {
+    padding: 0;
+}
+
+input {
+    width: 15em;
+    outline: none;
+    border: 1px solid rgb(247, 120, 247);
+}
+
+input:focus {
+    transition: 0.5s;
+    border: 1px solid rgb(139, 6, 139);
+}
+
+input.left {
+    width: 1em;
+    padding-left: 0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: .5em;
+}
+
+/*input.last {
+	margin-bottom: 1em;
+}*/
+#adults,
+#children {
+    width: 35px;
+}
+
+#smoking {
+    width: 1em;
+    margin-left: 0;
+}
+
+#submit {
+    padding: 10px;
+    border: none;
+    color: whitesmoke;
+    background: rgb(139, 6, 139);
+    border: 1px solid rgb(139, 6, 139);
+    margin-left: 0;
+    width: 10em;
+    font-weight: 600;
+}
+
+#submit:hover {
+    cursor: pointer;
+    border: 1px solid rgb(139, 6, 139);
+    color: rgb(139, 6, 139);
+    background: whitesmoke;
+    transition: all .50s ease;
+}
+
+span {
+    font-size: 12px;
+    font-weight: 600;
+    color: red;
+}
