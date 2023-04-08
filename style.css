@@ -109,3 +109,7 @@ span {
     font-weight: 500;
     color: red;
 }
+
+.valid {
+    color: green;
+}

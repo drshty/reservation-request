@@ -1,11 +1,12 @@
 "use strict";
 
+//ready event handler
 $(document).ready(() => {
 
 	//will be used to validate the email address
 	const emailPattern = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/;
 
-	//will be used to validate phone number		
+	//will be used to validate phone number
 	const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
 
 	//will be used to validate date
@@ -23,14 +24,14 @@ $(document).ready(() => {
 		// Get the form and the values of the input fields
 		const form = $('#reservation_form');
 
-		let rDate = $('#arrival_date').val();
-		let nights = $('#nights').val();
-		let name = $('#name').val();
-		let email = $('#email').val();
-		let phone = $('#phone').val();
+		// retrives values from each field and trim it to remove white spaces
+		const rDate = $('#arrival_date').val().trim();
+		const nights = $('#nights').val().trim();
+		const name = $('#name').val().trim();
+		const email = $('#email').val().trim();
+		const phone = $('#phone').val().trim();
 
-
-		// Validate each input field
+		// Validate reservation date
 		if (rDate == '') {
 			$('#arrival_date').next().text('This field is required.');
 			isValid = false;
@@ -38,10 +39,11 @@ $(document).ready(() => {
 			$('#arrival_date').next().text('Date must be in valid format. (e.g. MM/DD/YYYY)');
 			isValid = false;
 		} else {
-			rDate = $('#arrival_date').val().trim();
-			$('#arrival_date').next().text('*');
+			//if passess the validation return to valid state
+			$('#arrival_date').next().html('&#10004;').addClass('valid');
 		}
 
+		//check if nights is numeric
 		if (nights == '') {
 			$('#nights').next().text('This field is required.');
 			isValid = false;
@@ -49,52 +51,55 @@ $(document).ready(() => {
 			$('#nights').next().text('Must be numeric.');
 			isValid = false;
 		} else {
-			nights = $('#nights').val().trim();
-			$('#nights').next().text('*');
+			//if passess the validation return to valid state
+			$('#nights').next().html('&#10004;').addClass('valid');
 		}
 
+		//checks if name is entered
 		if (name == '') {
 			$('#name').next().text('This field is required.');
 			isValid = false;
 		} else {
-			name = $('#name').val().trim();
-			$('#name').next().text('*');
+			//if passess the validation return to valid state
+			$('#name').next().html('&#10004;').addClass('valid');
 		}
 
+		//checks if email matches with the pattern
 		if (email == '') {
 			$('#email').next().text('This field is required.');
 			isValid = false;
-		} else if (!emailPattern.test(email)) {                              //checks if email matches with the pattern
+		} else if (!emailPattern.test(email)) {
 			$('#email').next().text('Must be valid email address.');
 			isValid = false;
 		} else {
-			email = $('#email').val().trim();
-			$('#email').next().text('*');
+			//if passess the validation return to valid state
+			$('#email').next().html('&#10004;').addClass('valid');
 		}
 
+		//checks if phone matches with the pattern
 		if (phone == '') {
 			$('#phone').next().text('This field is required.');
 			isValid = false;
-		} else if (!phonePattern.test(phone)) {                              //checks if phone matches with the pattern
+		} else if (!phonePattern.test(phone)) {
 			$('#phone').next().text('Must be a valid input. (e.g. 123-456-7890).');
 			isValid = false;
 		} else {
-			phone = $('#phone').val().trim();
-			$('#phone').next().text('*');
+			//if passess the validation return to valid state
+			$('#phone').next().html('&#10004;').addClass('valid');
 		}
 
+		//put the entries back into the controls
+		$('#arrival_date').val(rDate);
+		$('#nights').val(nights);
+		$('#name').val(name);
+		$('#email').val(email);
+		$('#phone').val(phone);
+		
 		//checks all the entries correct
 		if (!isValid) {
-			// Prevent the form from submit if all entries are Invalid
+			// Prevent the form from submit if any entry is Invalid
 			e.preventDefault();
 
-			//put the entries back into the controls
-			$('#arrival_date').val(rDate);
-			$('#nights').val(nights);
-			$('#name').val(name);
-			$('#email').val(email);
-			$('#phone').val(phone);
 		}
-
 	});
 }); // end ready
